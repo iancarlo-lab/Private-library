@@ -13,8 +13,8 @@ app.use(express.json());
 app.use(helmet.noCache());
 app.use(helmet.hidePoweredBy({setTo: "PHP 4.2.0"}));
 
-//const uri = process.env.MONGO_URI;
-mongoose.connect("mongodb+srv://iancarlo:mongodb@cluster0-cerfm.mongodb.net/issuestracker?retryWrites=true&w=majority", {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology:true});
+const uri = process.env.MONGO_URI;
+mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology:true});
 
 const connection = mongoose.connection;
 connection.once('open', () => {
